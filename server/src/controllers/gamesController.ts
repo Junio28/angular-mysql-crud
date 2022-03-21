@@ -13,11 +13,11 @@ class GamesController {
     }
 
     public update(req: Request, res: Response){
-        res.json({text:'Editando un Juego'});
+        res.json({text:'Editando un Juego  '+ req.params.id});
     }
 
     public delete(req: Request, res: Response){
-        res.json({text:'Eliminando un Juego'});
+        res.json({text:'Eliminando un Juego '+ req.params.id});
     }
 
 }

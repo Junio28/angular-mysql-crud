@@ -14,10 +14,10 @@ class GamesController {
         res.json({ text: 'Creando un Juego' });
     }
     update(req, res) {
-        res.json({ text: 'Editando un Juego' });
+        res.json({ text: 'Editando un Juego  ' + req.params.id });
     }
     delete(req, res) {
-        res.json({ text: 'Eliminando un Juego' });
+        res.json({ text: 'Eliminando un Juego ' + req.params.id });
     }
 }
 exports.gamesController = new GamesController();
