@@ -9,7 +9,8 @@ class GamesController {
         res.json({ text: 'Este es el Juego ' + req.params.id });
     }
     create(req, res) {
-        res.json({ text: 'Creando un Juego' });
+        console.log(req.body);
+        res.json({ text: 'Juego Creado!!' });
     }
     update(req, res) {
         res.json({ text: 'Editando un Juego  ' + req.params.id });

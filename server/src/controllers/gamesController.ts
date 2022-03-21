@@ -12,7 +12,8 @@ class GamesController {
     }
 
     public create(req: Request, res: Response){
-        res.json({text:'Creando un Juego'});
+        console.log(req.body);
+        res.json({text:'Juego Creado!!'});
     }
 
     public update(req: Request, res: Response){
