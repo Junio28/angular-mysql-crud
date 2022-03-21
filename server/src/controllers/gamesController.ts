@@ -12,6 +12,10 @@ class GamesController {
         res.json({text:'Creando un Juego'});
     }
 
+    public update(req: Request, res: Response){
+        res.json({text:'Editando un Juego'});
+    }
+
     public delete(req: Request, res: Response){
         res.json({text:'Eliminando un Juego'});
     }

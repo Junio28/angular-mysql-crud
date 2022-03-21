@@ -13,6 +13,9 @@ class GamesController {
     create(req, res) {
         res.json({ text: 'Creando un Juego' });
     }
+    update(req, res) {
+        res.json({ text: 'Editando un Juego' });
+    }
     delete(req, res) {
         res.json({ text: 'Eliminando un Juego' });
     }
