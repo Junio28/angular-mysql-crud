@@ -3,9 +3,12 @@ import pool from '../database';
 
 class GamesController {
 
-    public index(req: Request, res: Response) {
-        pool.query('DESCRIBE games');
-        res.json('games');
+    public list(req: Request, res: Response) {
+        res.json({text:'Listando Juegos'});
+    }
+
+    public getOne(req: Request, res: Response) {
+        res.json({text:'Este es el Juego '+ req.params.id});
     }
 
     public create(req: Request, res: Response){
