@@ -10,6 +10,7 @@ class GamesRoutes {
     config() {
         this.router.get('/', gamesController_1.gamesController.index);
         this.router.post('/', gamesController_1.gamesController.create);
+        this.router.delete('/:id', gamesController_1.gamesController.delete);
     }
 }
 const gamesRoutes = new GamesRoutes();

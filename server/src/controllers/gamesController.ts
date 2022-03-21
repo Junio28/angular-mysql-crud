@@ -9,7 +9,11 @@ class GamesController {
     }
 
     public create(req: Request, res: Response){
-        res.json({text:'Creando  un Juego'});
+        res.json({text:'Creando un Juego'});
+    }
+
+    public delete(req: Request, res: Response){
+        res.json({text:'Eliminando un Juego'});
     }
 
 }
