@@ -10,6 +10,9 @@ class GamesController {
         database_1.default.query('DESCRIBE games');
         res.json('games');
     }
+    create(req, res) {
+        res.json({ text: 'Creando  un Juego' });
+    }
 }
 exports.gamesController = new GamesController();
 exports.default = exports.gamesController;

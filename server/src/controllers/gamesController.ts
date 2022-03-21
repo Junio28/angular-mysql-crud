@@ -8,6 +8,10 @@ class GamesController {
         res.json('games');
     }
 
+    public create(req: Request, res: Response){
+        res.json({text:'Creando  un Juego'});
+    }
+
 }
 
 export const gamesController = new GamesController();
