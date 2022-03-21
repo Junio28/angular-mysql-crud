@@ -3,6 +3,6 @@ export default {
         host: 'localhost',
         user: 'root',
         password: null,
-        database: 'node_mysql_ts'
+        database: 'ng_games_db'
     }
 }
