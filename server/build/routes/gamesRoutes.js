@@ -9,7 +9,6 @@ class GamesRoutes {
     }
     config() {
         this.router.get('/', gamesController_1.gamesController.index);
-        ;
     }
 }
 const gamesRoutes = new GamesRoutes();
