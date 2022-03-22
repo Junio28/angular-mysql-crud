@@ -4,15 +4,17 @@ import pool from '../database';
 class GamesController {
 
     public async list(req: Request, res: Response) {
-        const games=  await pool.query('SELECT * FROM games');
+        const games =  await pool.query('SELECT * FROM games');
         res.json(games);
     }
 
-    public async getOne(req: Request, res: Response): Promise<void> {
+    public async getOne(req: Request, res: Response): Promise<any> {
         const { id } = req.params;
         const games = await pool.query('SELECT * FROM games WHERE id=?',[id]);
-        console.log(games);
-        res.json({message:'Juego Encontrado!!'});
+        if(games.length > 0) {
+            return res.json(games[0]);
+        }
+        res.status(404).json({message:'Juego no encontrado!!'});
     }
 
     public async create(req: Request, res: Response): Promise<void>{
@@ -24,8 +26,10 @@ class GamesController {
         res.json({text:'Editando un Juego  '+ req.params.id});
     }
 
-    public delete(req: Request, res: Response){
-        res.json({text:'Eliminando un Juego '+ req.params.id});
+    public async delete(req: Request, res: Response): Promise<void>{
+        const { id } = req.params;
+        await pool.query('DELETE FROM games WHERE id =?', [id]);
+        res.json({message:'Juego ha sido eliminado!!'});
     }
 
 }

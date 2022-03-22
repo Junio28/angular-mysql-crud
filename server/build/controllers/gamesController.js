@@ -25,8 +25,10 @@ class GamesController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const games = yield database_1.default.query('SELECT * FROM games WHERE id=?', [id]);
-            console.log(games);
-            res.json({ message: 'Juego Encontrado!!' });
+            if (games.length > 0) {
+                return res.json(games[0]);
+            }
+            res.status(404).json({ message: 'Juego no encontrado!!' });
         });
     }
     create(req, res) {
@@ -39,7 +41,11 @@ class GamesController {
         res.json({ text: 'Editando un Juego  ' + req.params.id });
     }
     delete(req, res) {
-        res.json({ text: 'Eliminando un Juego ' + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            yield database_1.default.query('DELETE FROM games WHERE id =?', [id]);
+            res.json({ message: 'Juego ha sido eliminado!!' });
+        });
     }
 }
 exports.gamesController = new GamesController();
