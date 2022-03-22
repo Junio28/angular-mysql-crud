@@ -22,8 +22,10 @@ class GamesController {
         res.json({message:'Juego Creado!!'});
     }
 
-    public update(req: Request, res: Response){
-        res.json({text:'Editando un Juego  '+ req.params.id});
+    public async update(req: Request, res: Response){
+        const { id } = req.params;
+        const games = await pool.query('UPDATE games set ? WHERE id=?',[req.body, id]);
+        res.json({message:'Juego fue editado!!'});
     }
 
     public async delete(req: Request, res: Response): Promise<void>{

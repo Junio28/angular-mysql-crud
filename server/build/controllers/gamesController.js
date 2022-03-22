@@ -38,7 +38,11 @@ class GamesController {
         });
     }
     update(req, res) {
-        res.json({ text: 'Editando un Juego  ' + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const games = yield database_1.default.query('UPDATE games set ? WHERE id=?', [req.body, id]);
+            res.json({ message: 'Juego fue editado!!' });
+        });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
