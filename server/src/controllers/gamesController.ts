@@ -8,8 +8,11 @@ class GamesController {
         res.json(games);
     }
 
-    public getOne(req: Request, res: Response) {
-        res.json({text:'Este es el Juego '+ req.params.id});
+    public async getOne(req: Request, res: Response): Promise<void> {
+        const { id } = req.params;
+        const games = await pool.query('SELECT * FROM games WHERE id=?',[id]);
+        console.log(games);
+        res.json({message:'Juego Encontrado!!'});
     }
 
     public async create(req: Request, res: Response): Promise<void>{

@@ -22,7 +22,12 @@ class GamesController {
         });
     }
     getOne(req, res) {
-        res.json({ text: 'Este es el Juego ' + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const games = yield database_1.default.query('SELECT * FROM games WHERE id=?', [id]);
+            console.log(games);
+            res.json({ message: 'Juego Encontrado!!' });
+        });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
